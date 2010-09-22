@@ -1,0 +1,93 @@
+.TH ss5 1 "20 Jan 2008"
+.SH NAME
+.HP 9
+ss5srv \- A command line tool to manage ss5 socks server
+.SH SYNOPSIS
+ss5srv \fI[options]\fP
+.SH DESCRIPTION
+ss5srv connects to ss5 server and queries for socks statistics and socks directives. It can also change the ss5 online configuration adding new directives or modifying those existing.
+.SH OPTIONS
+Separate multiple options with white space.
+.TP
+.TP
+.TP
+write_config [\fIfilename\fP]
+Write configuration into file.conf and file.ha
+.TP
+show_connect
+Show connection statistics
+.TP
+.TP
+show_bind
+Show bind statistics
+.TP
+.TP
+show_udp
+Show udp statistics
+.TP
+list_option
+List <option> directives
+.TP
+list_method
+List <auth> directives
+.TP
+list_autho
+List <permit> directives
+.TP
+list_proxy
+List <proxy> directives
+.TP
+list_route directives
+List <route> directives
+.TP
+list_dump
+List <dump> directives
+.TP
+list_virtual
+List <virtual> directives
+.TP
+list_bandwidth
+List <bandwidth> directives
+.TP
+disp_authcache
+Display authentication cache content
+.TP
+disp_authocache
+Display authorization cache content
+.TP
+disp_virtualcache
+Display virtual affinity cache content
+.TP
+add_method/del_method [\fIsource-host\fP] [\fIsource-port\fP] [\fIauth-methods\fP]
+Add/remove a auth directive to/from online configuration
+.PP
+.TP
+add_dump/del_dump [\fIdestination-host\fP] [\fIdestination-port\fP] [\fIdump mode (r=rx, t=tx, b=rx+tx)\fP]
+Add/remove a dump directive to/from online configuration
+.PP
+.TP
+add_bandwidth/del_bandwidth [\fIgroup\fP] [\fImaxcons\fP] [\fIbandwidth\fP]
+Add/remove a bandwidth per user directive to/from online configuration
+.PP
+.TP
+add_proxy/del_proxy [\fIdestination-host\fP] [\fIdestination-port\fP] [\fIupstream-proxy-address\fP] [\fIupstream-proxy-port\fP] [\fIsocks-ver\fP]
+Add/remove a proxy directive to/from online configuration
+.PP
+.TP
+add_route/del_route [\fIsource/dest-host\fP] [\fIbind-address\fP] [\fIgroup\fP] [\fIdirection\fP]
+Add/remove a route directive to/from online configuration
+.PP
+.SH CONFIGURATION
+In order to enable ss5srv tool working with ss5 server, you must set SS5_SRV option into ss5.conf file.
+.PP
+.SH ENVIRONMENT
+If SS5_SOCKS_PORT is set, ss5srv connect to ss5 using the port specified instead of default (1080).
+.PP
+.SH SEE ALSO
+ss5(1), ss5.conf(5), ss5.pam(5), ss5.passwd(5), ss5.ha(5), ss5srv(1), ss5_supa(5), ss5_gssapi(5)
+.PP
+.SH AUTHOR
+    Matteo Ricchetti
+.TP
+.br
+Send comments to matteo.ricchetti@libero.it

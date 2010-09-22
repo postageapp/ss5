@@ -1,0 +1,2 @@
+rm -f /usr/lib/ss5/*.so
+find . -name *.so -exec mv {} /usr/lib/ss5 \;

@@ -1,0 +1,204 @@
+.TH ss5 1 "20 Jan 2009"
+.SH NAME
+.HP 9
+ss5 \- A daemon that implements the SOCKS v4 and v5 protocol to execute proxy requests for a client
+.SH SYNOPSIS
+ss5 \fI[options]\fP
+.SH DESCRIPTION
+ss5 is a socks server that implements the SOCKS v4 and v5 protocol. As a proxy server, ss5 authenticates, profiles  and processes network requests for clients. It establishes connections to application hosts for client applications. When the client attempts to access the network, the client connects to the ss5 daemon instead of the application host. 
+.PP
+Following authentication, clients request that ss5 perform network activities for the client. The activities might include:
+.RS 3
+.PP
+ CONNECT
+
+ BIND
+ 
+ UDP ASSOCIATE 
+.RE
+.PP
+The ss5 protocol is independent of application protocols, and can assist with different networking services, including telnet, ftp, finger, whois, gopher, and WWW access.
+.PP
+.RE
+The ss5 daemon supports one authentication method:
+.RS 3 
+.HP 21
+Username/Password -  Refer to ss5.passwd(5) or ss5.pam(5) for additional information.
+.HP 13
+.PP
+The ss5 daemon supports two profiling methods:
+.RS 3 
+.HP 21
+File -  Refer to ss5.conf(5) for additional information.
+
+Ldap -  Refer to ss5.conf(5) for additional information.
+.HP 13
+.RE
+.PP
+ss5 can run:
+.RS 3
+.PP
+standalone -  the default
+.TP
+prefork processes -  include the -n option (not supported in threaded mode)
+.HP 14
+threaded   -  if your operating system supports POSIX threads. Include the -t option to run ss5 in threaded mode.
+.SH OPTIONS
+Separate multiple options with white space.
+.TP
+-b [\fIhost:port\fP]| 
+\fIhost:port\fP specifies the host and the port number on that host on which ss5 runs, instead of the default port. When you omit \fIhost\fP, ss5 uses 0.0.0.0 as the \fIhost\fP value.
+.TP
+.TP
+.TP
+-n  \fIval\fP
+Run multiple instances of ss5. -n option control the number of instances.
+.TP
+.TP
+-t 
+Run ss5 in threaded mode, if your operating system supports POSIX threads.
+.TP
+-u  \fIval\fP
+Run ss5 with the specified user name.
+.TP
+-v 
+Print a message containing the current ss5 version.
+.TP
+-s 
+Use syslog instead of ss5.log log file.
+.TP
+-c 
+Run syntax check for config file
+.TP
+-m 
+Disable logging
+.SH VARIABLES
+To set the variables in the configuration file, use the syntax:
+.RE
+.PP
+.RS 5
+set \fIvariable [value]\fP
+.RE
+.TP
+SS5_DNSORDER 
+order domain name answers for implementing failover.
+.TP
+SS5_STIMEOUT \fIval\fP
+\fIval\fP specifies the idle time in seconds, before closing a connection (0 for infinite).
+.TP
+SS5_VERBOSE 
+enable verbose output to logfile.
+.TP
+SS5_CONSOLE
+enable web console.
+.TP
+SS5_SRV
+enable server manager command line tool.
+.TP
+SS5_DEBUG
+enable debug output to logfile.
+.TP
+SS5_SYSLOG_FACILITY
+set syslog facility
+.TP
+SS5_SYSLOG_LEVEL
+set syslog level
+.TP
+SS5_PAM_AUTH
+enable PAM authentication
+.TP
+SS5_AUTHCACHEAGE
+enable user authentication caching and set cache age
+.TP
+SS5_AUTHOCACHEAGE
+enable user authorization caching and set cache age
+.TP
+SS5_LDAP_TIMEOUT
+set timeout for ldap query for profiling
+.TP
+SS5_LDAP_BASE
+set BASE method for profiling (see PROFILING section in configuration file)
+.TP
+SS5_LDAP_FILTER
+set FILTER method for profiling (see PROFILING section in configuration file)
+.TP
+set SS5_RADIUS_AUTH
+enable RADIUS authentication
+.TP
+SS5_RADIUS_INTERIM_INT 
+set interval beetwen interim update packet
+.TP
+SS5_RADIUS_INTERIM_TIMEOUT
+set interim response timeout
+.TP
+SS5_STICKY_SESSION
+set session feature for balanced connections. SS5 mantain affinity session between
+source client and destination server
+.TP
+SS5_STICKYAGE 
+set expiration time for session affinity (in seconds)
+.TP
+SS5_NETBIOS_DOMAIN
+enable netbios domain mapping with directory store, during authorization process
+.TP
+SS5_PROCESSLIFE
+set number of requests ss5 process can serv before closing (only preforked mode)
+.TP
+SS5_SUPAKEY
+set SUPA secret key (default SS5_SERVER_S_KEY). See http://csocks.altervista.org
+.TP
+SS5_ICACHESERVER
+set internet address of ICP server
+.TP
+SS5_GSS_PRINC
+set gss service principal
+.RS 5
+.SH ENVIRONMENT
+.TP
+SS5_SOCKS_USER
+sets the effective user ID of the ss5 process
+.TP
+SS5_SOCKS_PORT
+sets listen port
+.TP
+SS5_SOCKS_ADDR
+sets listen address
+.TP
+SS5_CONFIG_FILE
+sets absolute pathname of ss5 config file
+.TP
+SS5_PASSWORD_FILE
+sets absolute pathname of ss5 password file
+.TP
+SS5_PROPAGATE_KEY
+sets key value for configuration replica
+.TP
+SS5_ROLE_SLAVE
+sets role to slave to accept replica from master (default value is ALONE)
+.TP
+SS5_LOG_FILE
+sets absolute pathname of ss5 log file
+.TP
+SS5_PROFILE_PATH
+sets absolute path of ss5 profile files
+.TP
+SS5_LIB_PATH
+sets absolute path of ss5 modules
+.PP
+.SH REQUEST FOR COMMENTS
+.TP
+RFC1928
+SOCKS protocol Version 5
+.TP
+RFC1929
+Username/Password Authentication for SOCKS V5
+.TP
+.PP
+.SH SEE ALSO
+ss5(1), ss5.conf(5), ss5.pam(5), ss5.passwd(5), ss5.ha(5), ss5srv(1), ss5_supa(5), ss5_gssapi(5)
+.PP
+.SH AUTHOR
+    Matteo Ricchetti
+.TP
+.br
+Send comments to matteo.ricchetti@libero.it

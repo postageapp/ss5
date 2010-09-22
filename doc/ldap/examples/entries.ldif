@@ -1,0 +1,109 @@
+## extended LDIF
+##
+## LDAPv3
+## base <dc=example,dc=com> with scope sub
+## filter: (objectclass=*)
+## requesting: ALL
+##
+#
+## example.com
+#dn: dc=example,dc=com
+#dc: example
+#objectClass: top
+#objectClass: domain
+#
+## Developers, example.com
+#dn: ou=Developers,dc=example,dc=com
+#ou: Developers
+#objectClass: top
+#objectClass: organizationalUnit
+#
+## Systems, example.com
+#dn: ou=Systems,dc=example,dc=com
+#ou: Systems
+#objectClass: top
+#objectClass: organizationalUnit
+#
+## Users, example.com
+#dn: ou=Users,dc=example,dc=com
+#ou: Users
+#objectClass: top
+#objectClass: organizationalUnit
+#
+## dev1, Developers, example.com
+#dn: uid=dev1,ou=Developers,dc=example,dc=com
+#uid: dev1
+#cn: dev1
+#objectClass: account
+#objectClass: posixAccount
+#objectClass: top
+#userPassword: dev1
+#loginShell: /bin/bash
+#homeDirectory: /home/dev1
+#uidNumber: 0
+#gidNumber: 0
+#gecos: Developers
+#
+## sys1, Systems, example.com
+#dn: uid=sys1,ou=Systems,dc=example,dc=com
+#uid: sys1
+#cn: sys1
+#objectClass: account
+#objectClass: posixAccount
+#objectClass: top
+#userPassword: sys1
+#loginShell: /bin/bash
+#homeDirectory: /home/sys1
+#uidNumber: 1
+#gidNumber: 1
+#gecos: Systems
+#
+## usr1, Users, example.com
+#dn: uid=usr1,ou=Users,dc=example,dc=com
+#uid: usr1
+#cn: usr1
+#objectClass: account
+#objectClass: posixAccount
+#objectClass: top
+#userPassword: usr1
+#loginShell: /bin/bash
+#homeDirectory: /home/usr1
+#uidNumber: 1
+#gidNumber: 1
+#gecos: Users
+#
+# pam_ldap
+
+#dn:ou=groups, dc=example, dc=com
+#objectclass: top
+#objectclass: organizationalUnit
+#ou: groups
+
+#dn:ou=people, dc=example, dc=com
+#objectclass: top
+#objectclass: organizationalUnit
+#ou: people
+
+dn: cn=user, ou=people, dc=example, dc=com
+cn: user
+sn: test
+objectclass: top
+objectclass: person
+objectclass: posixAccount
+objectclass: shadowAccount
+uid:user
+userpassword:password
+uidnumber:104
+gidnumber:100
+gecos:user test
+loginShell:/bin/ksh
+homeDirectory: /home/user
+shadowLastChange:10877
+shadowMin: 0
+shadowMax: 999999
+shadowWarning: 7
+shadowInactive: -1
+shadowExpire: -1
+shadowFlag: 0
+
+

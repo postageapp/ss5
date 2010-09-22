@@ -1,0 +1,20 @@
+  if( uci->Stream == BEGIN_STREAM ) {
+      if ((uci->Socket = socket(AF_INET, SOCK_DGRAM, 0)) == -1) {
+        if( bind(uci->Socket,(struct sockaddr *)&serverbind_ssin,sizeof(struct sockaddr_in)) ) {
+          getsockname(uci->Socket,(struct sockaddr *)&serverbind_ssin,&len);
+    FD_SET(uci->Socket,&fdset);
+    if( (fd=select(ci->Socket+uci->Socket+1,&fdset,NULL,NULL,&tv)) ) {
+      if( FD_ISSET(uci->Socket,&fdset) ) {
+          sd->UdpRBytesReceived=recvfrom(uci->Socket,gssHeader,sizeof(gssHeader),MSG_PEEK,(struct sockaddr *)&clientBindSsin,(socklen_t *)&len);
+          sd->UdpRBytesReceived=recvfrom(uci->Socket,sd->UdpRequest,sizeof(sd->UdpRequest),0,(struct sockaddr *)&clientBindSsin,(socklen_t *)&len);
+          if( (sd->UdpRBytesReceived=recvfrom(uci->Socket,sd->UdpRequest,sizeof(sd->UdpRequest),0,(struct sockaddr *)&clientBindSsin,
+        uci->Stream = END_STREAM;
+    strncpy(uci->SrcAddr,addr,sizeof(uci->SrcAddr));
+    uci->SrcPort=ntohs(clientBindSsin.sin_port);
+    if( uci->Stream == BEGIN_STREAM ) {
+  uci->Stream=CONTINUE_STREAM;
+  clientBindSsin.sin_port        = htons(uci->SrcPort);
+  clientBindSsin.sin_addr.s_addr = inet_addr(uci->SrcAddr);
+  if( (sd->UdpRBytesSent=sendto(uci->Socket,sd->UdpRequest,datalen,0,(struct sockaddr *)&clientBindSsin,(socklen_t)len)) == -1 ) {
+  if( STREQ(uci->SrcAddr,ri->DstAddr,sizeof(uci->SrcAddr) - 1) && (uci->SrcPort == ri->DstPort) )
+  else if ( STREQ(ri->DstAddr,"0.0.0.0",sizeof("0.0.0.0") - 1) && (uci->SrcPort == ri->DstPort) )

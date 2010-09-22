@@ -1,0 +1,63 @@
+.TH ss5.ha 5 "13 Mar 2006"
+.SH NAME
+.HP 16
+ss5.ha \- Contains directives for centralized configuration management
+.SH SYNOPSIS
+ss5 usually reads the HA file, ss5.ha, in the /etc/opt/ss5 directory.
+.PP
+.SH DESCRIPTION
+To enable centralized configuration management, ss5 opens and reads peers list from ss5.ha file and propagate local configuration to them after load/reload command is received, using a propagate key as security mechanism. HA file contains also directives that must not be propagated to peers, such as <route>.
+.PP
+In the HA file, add one line for each peer. Each line should contain <peer> directive with the internet address of peer.
+
+.PP
+Adding centralized configuration management feature to ss5 requires 3 steps:
+.RS 5
+.HP 3
+1. Create the HA file with one entry per line. To create an entry for the peer 172.16.0.1, add this line to the ss5.ha file: 
+.RS 8
+.PP
+peer 172.16.0.1
+.RE
+.HP 3
+2. Set the environment variable SS5_PROPAGATE_KEY on master and peers with a key value before launch ss5 binary. The startup file may contain two lines such as: 
+.RS 8
+.PP
+SS5_PROPAGATE_KEY=123456789
+.PP
+export SS5_PROPAGATE_KEY
+.RE
+.PP
+3. Set the environment variable SS5_ROLE_SLAVE=YES on peers to enable slave role and accept replica from master.
+.PP
+.SH ROUTING ENTRIES
+Route entries describe the addresses ss5 must bind to before CONNECT, BIND and UPSTREAM operations.
+.RS 5 
+.PP
+route \fIsource/destination-host bind-address group flag\fP
+.RE
+.PP
+.TP 15 
+.B \fIsource\fP
+Could be host address or network address (source or destination if flag 's' o 'd')
+.TP 
+.B \fIbind-address\fP
+Must be host address
+.PP 
+.TP
+.B \fIgroup\fP
+Could be filename in the /etc/ss5 directory containing usernames, a DN into a directory server or - (None). Not available for UDP requests.
+.PP 
+.TP
+.B \fIflag\fP
+Could be 's' or 'd'. If =s, route is evaluated as source; if =d, route is evaluated as destination.
+.PP
+.SH SEE ALSO
+ss5(1), ss5.conf(5), ss5.pam(5), ss5.passwd(5), ss5srv(1), ss5_supa(5), ss5_gssapi(5)
+.SH AUTHOR
+.RS 3
+Matteo Ricchetti
+.br
+.RE
+.PP
+Send comments to matteo.ricchetti@libero.it

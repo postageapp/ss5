@@ -1,0 +1,28 @@
+.TH ss5.gss 5 "22 Feb 2009"
+.SH NAME
+.HP 16
+ss5.gss \- Enable GSS Kerberos authentication, integrity and confidentiality (see RFC 1961)
+.SH SYNOPSIS
+ss5 usually communicates with socks client in clear-text. If <s> method is set in <auth> directive, ss5 establishes a common security mechanism based on Kerberos mechanisms.
+.PP
+.SH DESCRIPTION
+To enable GSSAPI authentication with the ss5 daemon you must set SS5_GSS_PRINC  option in the ss5.conf file indicating your Kerberos service principal name. Before GSSAPI authentication works, you must install libgssapi package. In base of socks client want to do, SS5 accepts 0 (auth only), 1 (integrity) or 2 (encryption) encapsulation values.
+.PP
+To add GSSAPI authentication, change the line to: 
+.RS 5
+auth - - k
+.PP
+set SS5_GSS_PRINC option containing your Kerberos service principal name (i.e. rcmd@fqdn if service is equivalent to "rcmd")
+.RE
+.RE
+.PP
+3. Restart the server.
+.SH SEE ALSO
+ss5(1), ss5.conf(5), ss5.pam(5), ss5.passwd(5), ss5.ha(5), ss5srv(1), ss5_supa(5), ss5_gss(5)
+.SH AUTHOR
+.RS 3
+Matteo Ricchetti
+.br
+.RE
+.PP
+Send comments to Matteo.Ricchetti@libero.it

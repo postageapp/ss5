@@ -1,0 +1,9 @@
+To install cgi-bin: 
+
+  cp statmgr.cgi INTO YOUR GCI-BIN DIRECTORY    (i.e. /var/www/cgi-bin/)
+
+  cp SS5Logo.jpg INTO YOUR HTDOCS DIRECTORY (i.e. /var/www/html/)
+
+To call cgi-bin:
+
+  http://yourwebserver/cgi-bin/statmgr.cgi

@@ -1,0 +1,12 @@
+PAM Configuration:
+
+1) Configure ss5.pam file;
+
+2) Linux:
+	Copy ss5.pam into /etc/pam.d/ directory;
+   Solaris:
+	Copy ss5.pam content into /etc/pam.confi;
+
+3) Set SS5_PAM_AUTH options in /etc/ss5/ss5.conf file.
+
+NOTE: if using /etc/passwd like PAM authentication, you must start ss5 with "-u root" option!

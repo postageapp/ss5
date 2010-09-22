@@ -1,0 +1,28 @@
+.TH ss5.supa 5 "20 Jan 2009"
+.SH NAME
+.HP 16
+ss5.supa \- Enable Secret User Password Autehntication (see http://csocks.altervista.org/)
+.SH SYNOPSIS
+ss5 usually communicates with socks client in clear-text. If SS5_SUPA option is set, ss5 encrypts user credentials during the authentication step with socks client (see http://csocks.altervista.org/).
+.PP
+.SH DESCRIPTION
+To enable SUPA authentication with the ss5 daemon you must set SS5_SUPA options in the ss5.conf file indicating the secret key value (must be 16 bytes long). Before SUPA authentication works, you must install openssl package.
+.PP
+To add SUPA authentication, change the line to: 
+.RS 5
+auth - - s
+.PP
+set SS5_SUPA SS5_SERVER_S_KEY (SS5_SERVER_S_KEY is the default value)
+.RE
+.RE
+.PP
+3. Restart the server.
+.SH SEE ALSO
+ss5(1), ss5.conf(5), ss5.pam(5), ss5.passwd(5), ss5.ha(5), ss5srv(1), ss5_supa(5), ss5_gssapi(5)
+.SH AUTHOR
+.RS 3
+Raffaele De Lorenzo
+.br
+.RE
+.PP
+Send comments to raffaele.delorenzo@libero.it

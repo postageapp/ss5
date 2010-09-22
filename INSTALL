@@ -1,0 +1,141 @@
+Linux installation using source RPM
+==================================
+
+  1. To compile ss5, type:
+
+     rpmbuild --rebuild ss5-X.Y-mrZ.src.rpm
+
+  2. To install ss5, type:
+
+     rpm -ivh ss5-X.Y-mrZ.i386.rpm
+
+  3. To remove ss5, type:
+
+     rpm -e ss5-X.Y-mrZ.i386.rpm 
+
+
+Linux installation using tar.gz
+==================================
+
+  1. cd to the directory containing the ss5 source code
+     and type:
+
+     	./configure
+     
+  2. To compile ss5, type:
+
+	 make 
+
+  3. To install ss5, type:
+
+	make install
+
+  4. To remove ss5, type:
+
+        make uninstall
+
+     To remove the program binaries and object files from the source code 
+     directory, type:
+
+ 	make clean
+
+     To remove the files that configure created before recompiling or before 
+     compiling ss5 for a different kind of computer, type:
+
+	make distclean
+
+
+Solaris installation using tar.gz
+=================================
+
+  1. cd to the directory containing the ss5 source code
+     and type:
+
+     	./configure
+     
+  2. To compile ss5, type:
+
+	 make 
+
+  3. To install ss5, type:
+
+	make install
+
+  4. Copy the content of doc/pam/examples/pam file into /etc/pam.conf
+
+  5. To remove ss5 from your system, type:
+
+        make uninstall
+
+     To remove the program binaries and object files from the source code 
+     directory, type:
+
+ 	make clean
+
+     To remove the files that configure created before recompiling or before 
+     compiling ss5 for a different kind of computer, type:
+
+	make distclean
+
+  
+Configuring package
+===================
+
+configure recognizes options that control the compilation process:
+
+--with-debug              
+	Turn on debugging flags
+
+--with-gssapi
+	Turn on gssapi support
+
+--with-configfile=FILE
+	Set the location of config file, i.e. /usr/local/etc/ss5.conf (default /etc/opt/ss5/ss5.conf)
+
+--with-passwordfile=FILE
+	Set the location of password file, i.e. /usr/local/etc/ss5.passwd (default /etc/opt/ss5/ss5.passwd)
+
+--with-logfile=FILE
+	Set the location of log file, i.e. /usr/local/log/ss5.log (default /var/log/ss5/ss5.log)
+
+--with-profilepath=PATH
+	Set the location of profile path, i.e. /usr/local/etc (default /etc/opt/ss5)
+
+--with-libpath=PATH
+	Set the location of ss5 modules, i.e. /usr/local/lib/ss5 (default /usr/lib/ss5)
+
+--with-tracepath=PATH
+	Set the location of ss5 trace files, i.e. /usr/local/trc/ss5 (default /var/log/ss5)
+
+--with-defaultaddr=ADDR
+	Set default bind address, i.e. 10.10.10.1 (default 0.0.0.0, all addresses)
+
+--with-defaultport=PORT
+	Set default bind port, i.e. 8080 (default 1080)
+
+--with-defaultuser=USERNAME
+	Set default user process, i.e. socksuser (default nobody)
+
+Configuring installation
+===================
+
+configure recognizes options that control the installation process:
+
+--with-confpathbase=PATH   
+	Set install location of ss5 config files (default /etc/opt)
+
+--with-binpathbase=PATH    
+	Set install location of ss5 binary files (default /opt)
+
+--with-docpathbase=PATH    
+	Set install location of ss5 doc files (default /usr/share/doc)
+
+--with-manpathbase=PATH    
+	Set install location of ss5 man files (default /usr/share/man)
+
+--with-tracepathbase=PATH    
+	Set install location of ss5 trace files (default /var/log/ss5)
+
+--with-logpathbase=PATH    
+	Set install location of ss5 log file (default /var/log/ss5)
+

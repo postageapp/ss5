@@ -1,0 +1,2 @@
+MODULE		= mod_log.so
+MODULEOBJ	= SS5Mod_log.o

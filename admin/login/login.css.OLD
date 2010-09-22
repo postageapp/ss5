@@ -1,0 +1,92 @@
+ * {padding: 0; margin: 0; outline: none}
+html {height: 100%}
+body {font: 14px arial, sans-serif; color: #103D4A; line-height: 18px; height: 100%}
+p {margin-top:10px}
+a {text-decoration: none; color: #984121}
+em {font-family: "Trebuchet MS", arial, sans-serif; font-weight: bold}
+img, fieldset {padding-bottom: 1px;  border-top-style: solid; border-top-width: 1px; border-top-color: #ccc; border-right-style: none;border-left-style: none;border-bottom-style: none;}
+legend { font-weight: bold; margin-top: 5px; color: black;}
+table {border-collapse: collapse; border-spacing: 0}
+textarea {border: none; font: 12px arial, helvetica, sans-serif; color: #222}
+ h1 {font: bold 18px 'Trebuchet MS', Arial, Helvetica, sans-serif}
+h2 {font: bold 16px 'Trebuchet MS', Arial, Helvetica, sans-serif}
+h3 {font-size: 14px}
+h4 {font: bold italic 12px 'Trebuchet MS', Arial, Helvetica, sans-serif}
+h5 {font-size: 12px}
+
+.graphic_text {display: block; text-indent: -5000px; overflow: hidden; background-repeat: no-repeat}
+
+.form dt {width: 70px}
+.form dd {margin: -19px 0 10px 80px}
+.form input {font-size: 11px}
+.form_list dt {width: 70px; padding-bottom: 17px}
+.form_list dd {position: absolute; margin: -37px 0 0 80px; line-height: 26px}
+
+.input_text {line-height: 14px; background: url("input_right.png") top right no-repeat; display: -moz-inline-stack; display: inline-block; zoom: 1; *display: inline}
+.input_text > span {background: url("input_left.png") no-repeat; padding: 4px 2px 4px 5px; margin-right: 3px; display: block}
+.input_text input {border: none; border-width: 0; height: 16px; font-size: 12px; color: #222}
+
+
+* + html .input_text input {margin-top: -1px}
+
+.input_text input.default_value {font-family: "Trebuchet MS", Arial, sans-serif; font-style: italic; color: #999}
+
+.ibutton {background-position: 0 0; background-repeat: no-repeat; padding: 0 0 0 5px; line-height: 33px; float: left; cursor: pointer}
+.ibutton.blue {background: url("button_blue_left.png") 0 0 no-repeat}
+.ibutton.blue:hover {background-position: 0px -50px}
+.ibutton.blue:active {background-position: 0px -100px}
+
+.ibutton > span {display: block; padding-right: 10px; padding-left: 5px; text-align: center; font: normal 15px/33px "Trebuchet MS", Arial, sans-serif; color: #455a2c; background-position: right 0; background-repeat: no-repeat}
+.ibutton.blue > span {color: #165667; background-image: url("button_blue_right.png")}
+.ibutton.blue:hover > span {background-position: right -50px}
+.ibutton.blue:active > span {background-position: right -100px}
+
+.ibutton span.graphic_text {background-position: center 9px; background-repeat: no-repeat}
+
+
+body > .container {height: auto; min-height: 100%; position: relative}
+body > .container > .content {background: white; padding: 0 10px 0 10px}
+body > .container > .content > .content_inner {width: 880px; margin: 0 auto; padding: 25px 0 0 0}
+
+
+.header {background: url("header_bg.png") repeat-x; border-bottom: 1px solid #a8c7ce; padding: 0 10px 0 10px}
+.header_content {padding: 15px 0px 0 0px; height: 57px; width: 880px; margin: 0 auto; position: relative}
+
+
+body.top #go_home {display:none}
+body h2.graphic_text {height: 25px}
+
+body.login #footer .go_home {display: none}
+
+body.login > .container > .content > .content_inner {padding: 35px 0 30px 25px}
+body.login .footer_content {padding: 10px 0 25px 50px; width: 805px}
+body.login .header_content {left: 0}
+body.login #login_block {padding: 10px 0 10px 0px; position: relative; width: 350px; margin-left: 48px}
+
+body.login .explanation {position: absolute; width: 200px; top: 6px; left: 532px}
+body.login .explanation.subtext {font-size: 13px; line-height: 20px}
+
+body.login div.line {margin-bottom: 20px}
+body.login div.line > label {display: block; width: 100px; height: 24px; float: left}
+
+body.login #login_label {background: url("username.png") no-repeat left center; }
+body.login #password_label {background: url("password.png") no-repeat left center}
+
+body.login #login_block .input_text input {width: 240px}
+body.login #login_button {float: right}
+body.login #forgot_your_password {font: normal 12px Arial; display: block; margin: 30px 0 0 100px}
+
+.mytest {
+  position:relative;
+  width:240px;
+  height:180px;
+  top:-200px;
+  left:200px;
+  cursor: pointer;
+  background-color: #3A0000;
+  background:#f2f2f2;
+  border:1px solid #c3c3c3;
+  display:inline-block;
+}
+
+

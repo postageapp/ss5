@@ -1,0 +1,2 @@
+MODULE		= mod_bandwidth.so
+MODULEOBJ	= SS5Mod_bandwidth.o

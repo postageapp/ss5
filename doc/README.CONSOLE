@@ -1,0 +1,4 @@
+SS5 shows statistics, balanced connections and affinity table via web:
+
+	http://socksserver:1080/statistics
+	http://socksserver:1080/balancing

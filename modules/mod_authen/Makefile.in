@@ -1,0 +1,11 @@
+
+MODULE	    =	mod_authentication.so
+
+MODULEOBJ  = 	SS5Mod_authentication.o		\
+		SS5Basic.o			\
+		SS5ExternalProgram.o		\
+		SS5Pam.o			\
+		../../common/SS5Radius.o        \
+		SS5Supa.o
+
+

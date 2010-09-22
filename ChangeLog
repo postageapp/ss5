@@ -1,0 +1,477 @@
+Sun Sep  1 15:45:54 CEST 2002
+        * SS5-v1.0r1 released
+
+Fri Mar  16 15:45:54 CEST 2003
+        * SS5-v1.1r1 released
+        * Fix acl problem
+        * Add proxy upstream with connect & bind
+        * Add -f option for foreground execution
+        * Add -b option which specifies the host 
+          and the port number on which socks5 runs
+
+Tue Apr  15 11:00:00 CEST 2003
+        * SS5-v1.2r1 released
+        * Fix fixup problem
+        * Fix autentication V4 problem
+        * Add smtp fixup protocol
+
+Sun Apr  20 15:00:00 CEST 2003
+        * SS5-v1.3r1 released
+        * Add prefork feature
+
+Mon Jun  24 17:30:00 CEST 2003
+        * SS5-v2.0r1 released
+        * Add thread support
+        * Add bind port to -b option (-b ip:port)
+        * Remove -f option for foreground execution
+	* Fix access control list problem
+	* Fix some potential buffer overflow 
+
+Mon Jul  27 08:30:00 CEST 2003
+        * SS5-v2.1r1 released
+        * Add group profile feature
+        * Add bandwidth control
+	* Fix some potential buffer overflow 
+	* Fix dns ordering problem
+
+Thu Aug  14 08:30:00 CEST 2003
+        * SS5-v2.2r1 released
+        * Add ldap profile feature
+        * Add PAM authentication
+        * Add username for ss5 execution
+        * Add server balancing feature
+        * Add ssl fixup
+        * Add pop3 fixup
+        * Add imap fixup
+        * Fix case insensitive username compare operation
+        * Fix -b option
+
+Thu Aug  26 15:30:00 CEST 2003
+        * SS5-v2.3r1 released
+        * Add source-if feature for connect operation
+        * Add more control in ldap base configuration
+        * Add more detail on log messages
+        * Threads creation improvement
+        * Fix automatic configuration reload (every 30 seconds)
+
+Thu Sep  12 15:30:00 CEST 2003
+        * SS5-v2.3r2 released
+        * Fix acl problem
+
+Thu Oct  11 17:00:00 CEST 2003
+        * SS5-v2.3r3 released
+        * Fix crash for connections reset by peer
+
+Thu Oct  29 10:10:00 CEST 2003
+        * SS5-v2.4r1 released
+        * Add session affinity in balanced connections
+        * Add socks statistics about connections
+        * Add fake authentication
+        * Add web support for virtual connections, session affinity and statistics
+        * Add more detail on log messages
+        * Fix source-if feature for connect operation
+        * Fix access list bugs
+
+Thu Nov  15 23:45:00 CEST 2003
+        * SS5-v2.4r2 released
+	* Fix some potential buffer overflow 
+
+Thu Dic  15 18:10:00 CEST 2003
+        * SS5-v2.4r3 released
+	* Fix signal set on Solaris system
+
+Thu Dic  24 18:34:00 CEST 2003
+        * SS5-v2.4r4 released
+	* Fix udp bind interface close to client
+
+Thu Dic  30 19:14:00 CEST 2003
+        * SS5-v2.4r5 released
+	* Fix Solaris documentation
+	* Fix admin access check
+	* Add statistics information
+
+Thu Jan  09 13:30:00 CEST 2004
+        * SS5-v2.4r6 released
+	* Fix acl bug
+	* Fix bad file descriptor in threaded mode
+	* Log format restyling
+	* Add -m option, to disable log
+	* Add -c option, to check configuration file
+
+Thu Jan  28 16:40:00 CEST 2004
+        * SS5-v2.4r7 released
+	* Fix socks5 method
+
+Thu Jul  03 10:05:00 CEST 2004
+        * SS5-v2.4r8 released
+	* Fix bug closing logfile
+
+Thu Jan  03 23:00:00 CEST 2005
+        * SS5-v2.4r9 released
+	* Change facility log
+	* Case insensitive in file profiling
+	* Buffer overflow fix
+
+Thu Feb  07 20:00:00 CEST 2005
+	* SIGPIPE signal fix
+
+Thu Mar  01 20:00:00 CEST 2005
+        * SS5-v3.0r1 released
+
+Thu Mar  09 22:00:00 CEST 2005
+        * SS5-v3.0r2 released
+        * Pam module fix
+
+Thu Mar  10 22:00:00 CEST 2005
+        * SS5-v3.0r3 released
+        * Pam module fix
+
+Thu Apr  10 14:00:00 CEST 2005
+        * SS5-v3.0r4 released
+        * Added comment into group file
+
+Thu May  10 22:00:00 CEST 2005
+        * SS5-v3.0r5 released
+        * Fix connect response using dns
+        * Increase authentication buffer
+        * Fix profiling bug
+        * Modify package structure
+
+Sun Aug  07 21:00:00 CEST 2005
+        * SS5-v3.0r6 released
+        * Increase authorization buffer
+
+Mon Aug  08 20:00:00 CEST 2005
+        * SS5-v3.0r7 released
+        * Add log detail
+
+Thu Aug  18 20:00:00 CEST 2005
+        * SS5-v3.0r8 released
+        * Fix SS5_VERBOSE option
+
+Mon Aug  22 22:00:00 CEST 2005
+        * SS5-v3.0r9 released
+        * Fix SS5_AUTHCACHEAGE option
+
+Mon Oct  27 23:00:00 CEST 2005
+        * SS5-v3.0r10 released
+        * Add log details
+        * Fix log string
+        * Fix recv call
+
+Mon Nov  01 14:30:00 CEST 2005
+        * SS5-v3.1r1 released
+        * Add new dump module
+
+Sun Nov  06 19:30:00 CEST 2005
+        * SS5-v3.2r1 released
+        * Add authorization cache
+        * New load configuration mechanism
+        * New log format
+        * Add statistic features
+        * Add epoll support
+
+Sun Nov  23 20:00:00 CEST 2005
+        * SS5-v3.2r2 released
+        * Fix mod statistics
+        * Fix mod balance
+
+Mon Nov  28 10:15:00 CEST 2005
+        * SS5-v3.2r3 released
+        * Fix mod bandwidth
+        * Fix mod statistics
+        * Fix man
+        * Fix route
+        * Add auto-refresh web console
+
+Mon Dec  04 18:15:00 CEST 2005
+        * SS5-v3.2r4 released
+        * Fix upstream
+        * Fix post authorization
+        * Fix proxy hash
+        * Fix route hash
+
+Mon Dec  16 09:15:00 CEST 2005
+        * SS5-v3.2r5 released
+        * Fix makefile for gcc old version
+
+Mon Dec  22 21:15:00 CEST 2005
+        * SS5-v3.2r6 released
+        * Fix module dump
+        * Fix module authentication (pam)
+
+Mon Jan  02 16:51:00 CEST 2006
+        * SS5-v3.2r7 released
+        * Add Solaris support
+
+Mon Jan  16 19:30:00 CEST 2006
+        * SS5-v3.3r1 released
+        * Add multiple directory store support
+        * Add netbios compatibility in authorization module
+        * Add noproxy rule in mod_socks5
+	* Fix mod_authorization (thx to Beeby Xia)
+
+Mon Jan  25 14:50:00 CEST 2006
+        * SS5-v3.3r2 released
+        * Add gid setting with -u option
+        * Add configure file
+
+Sat Feb  04 15:30:00 CEST 2006
+        * SS5-v3.3r3 released
+        * Fix PwdFileCheck
+        * Fix ProfileFileCheck
+
+Mon Feb  06 15:45:00 CEST 2006
+        * SS5-v3.3r4 released
+        * Add default netbios domain
+        * Fix externalprogram
+
+Tue Feb  07 14:00:00 CEST 2006
+        * SS5-v3.3r5 released
+        * Fix Solaris 10 compatibility with ctime_r() call
+        * Fix netbios default domain
+
+Sat Feb  11 10:00:00 CEST 2006
+        * SS5-v3.4r1 released
+        * Add environment configuration variables
+        * Fix Solaris 10 compatibility with ctime_r() call
+        * Fix potential buffer overflow using PAM
+        * Code restyling (thx to Walter Franzini)
+        * New configure file (thx to Walter Franzini)
+
+Wed Feb  22 09:34:00 CEST 2006
+	* SS5-v3.4r2 released
+        * Fix mod_authorization
+
+Mon Feb  27 11:00:00 CEST 2006
+        * SS5-v3.4.3 released
+        * Fix package for RH naming guidlines
+
+Mon Feb  27 15:00:00 CEST 2006
+        * SS5-v3.4.3-2 released
+        * Fix package for Fedora naming guidlines
+
+Tue Feb  28 16:30:00 CEST 2006
+        * SS5-v3.4.4-1 released
+        * Fix PAM
+
+Thu Mar  09 12:00:00 CEST 2006
+        * SS5-v3.5.1-1 released
+        * Add centralized management of the configuration file
+
+Thu Mar  09 13:00:00 CEST 2006
+        * SS5-v3.5.1-2 released
+        * Strip debug from package
+
+Thu Mar  09 17:00:00 CEST 2006
+        * SS5-v3.5.2-1 released
+        * Fix centralized management
+
+Thu Mar  09 19:30:00 CEST 2006
+        * SS5-v3.5.3-1 released
+        * Add security feature to centralized management
+
+Sun Mar  19 18:00:00 CEST 2006
+        * SS5-v3.5.3-2 released
+        * Fix package for Fedora naming guidlines
+
+Wed Mar  22 15:00:00 CEST 2006
+        * SS5-v3.5.4-1 released
+        * Fix external authentication program 
+
+Tue Apr  04 12:00:00 CEST 2006
+        * SS5-v3.5.4-2 released
+        * Fix package for Fedora naming guidelines
+
+Thu Apr  06 18:00:00 CEST 2006
+        * SS5-v3.5.5-1 released
+        * Add mutex to PAM (some modules are not thread-safe)
+
+Mon Apr  10 12:00:00 CEST 2006
+        * SS5-v3.5.6-1 released
+        * Fix startup script
+
+Mon Apr  24 15:40:00 CEST 2006
+        * SS5-v3.5.7-1 released
+        * Fix replica feature
+        * Fix configure file
+        * Fix man file for ss5.peers
+
+Wed Apr  26 16:26:00 CEST 2006
+        * SS5-v3.5.8-1 released
+        * Fix EAP (thx to Jakob Perz)
+
+Fri May  05 12:26:00 CEST 2006
+        * SS5-v3.5.8-2 released
+        * Fix startup script
+
+Mon May  08 16:30:00 CEST 2006
+        * SS5-v3.5.9-1 released
+        * Fix replication feature
+        * Fix DNS buffer as RFC
+
+Thu Aug  24 23:30:00 CEST 2006
+        * SS5-v3.6.1-1 released
+	* Add BSD support
+        * Fix ldap authorization
+        * Extend "route" feature adding user group field
+	* Extend "permit" feature adding expiration date field
+	* Add cgi-bin for web statistics and balancing
+        * Fix mod_balance
+        * Fix mod_filter
+	* Fix max network interfaces policy
+	* Add set option to enable/disable web console
+	* Fix configure.ac for Deb distribution (thx to Francisco Gimeno)
+	* Fix Makefile uninstall section for Solaris
+
+Thu Apr  05 10:15:00 CEST 2007
+        * SS5-v3.6.2-1 released
+        * Fix core (stderr)
+        * Fix setuid/gid (thx to Enrico Scholz)
+        * Fix security   (ss5.passwd)
+
+Tue May  15 10:50:00 CEST 2007
+        * SS5-v3.6.3-1 released
+        * Fix mod_dump
+        * Fix spec file    (see bugzilla)
+        * Fix startup file (add sysconfig support)
+        * Add flag to route
+
+Wed May  16 09:10:00 CEST 2007
+        * SS5-v3.6.3-2 released
+        * Fix man files
+
+Wed May  24 18:10:00 CEST 2007
+        * SS5-v3.6.4-1 released
+        * Change ss5.peers file
+
+Wed May  28 11:25:00 CEST 2007
+        * SS5-v3.6.4-2 released
+        * Fix utils
+
+Sun Jun  10 14:20:00 CEST 2007
+        * SS5-v3.6.4-3 released
+        * Fix code
+
+Wed Jul  18 11:30:00 CEST 2007
+        * SS5-v3.6.4-4 released
+        * Fix mod_socksX
+
+Mon Sep  17 22:30:00 CEST 2007
+        * SS5-v3.7.1-1 released
+        * Add secure authentication method 
+        * Add double authentication support over upstream proxy
+        * Fix mod_socks4
+
+Sun Jan  20 17:50:00 CEST 2009
+        * SS5-v3.7.1-12 released
+        * Fix code
+        * Fix init script
+        * Add SUPA support (Thx to Raffaele DeLorenzo)
+        * Add <bandwidth> directive to limit bandwidth and number
+          of connections per user
+        * Add server manager tool to manage online configuration
+
+Sun Feb  15 20:07.00 CEST 2009 
+        * SS5-v3.7.2-1 released
+        * Server manager update
+        * Add icp (Internet Cache Protocol) support to module Filter
+        * Add GSSApi authetication message support
+        * Add syslog facility and level configuration option
+        * Fix solaris CFLAGS
+        * Fix bug HA file
+        * Fix code
+
+Thu Mar  19 22:27.00 CEST 2009 
+        * SS5-v3.7.3-1 released
+        * Fix SYSConfig environment
+        * Add "dash" flag as group (equal to all users) for <bandwidth> directive
+        * Fix UDP_ASSOCIATE
+
+Sun Mar  22 18:43.00 CEST 2009 
+        * SS5-v3.7.4-1 released
+        * Fix GSSAPI
+
+Wed Mar  25 12:13.00 CEST 2009
+        * SS5-v3.7.4-2 released
+        * Fix configure option for Solaris and GssApi
+
+Wed Mar  25 14:30.00 CEST 2009 
+        * SS5-v3.7.5-2 released
+        * Fix UDP_ASSOCIATE to support multiple udp packets (RFC compliant)
+        * Fix code
+
+Sat Mar  28 17:27.00 CEST 2009 
+        * SS5-v3.7.6-1 released
+        * Fix mod_bandwidth
+
+Tue Apr  07 11:10.00 CEST 2009 
+        * SS5-v3.7.7-1 released
+        * Fix core
+        * Fix hash
+        * Add new commands to ss5srv tool
+
+Fri Apr  10 12:10.00 CEST 2009 
+        * SS5-v3.7.8-1 released
+        * Fix mod_socks5 udp routing
+
+Wed Apr  22 21:17.00 CEST 2009
+        * SS5-v3.7.8-2 released
+        * Fix CORE
+
+Sat May  30 20:00.00 CEST 2009
+        * SS5-v3.7.8-3 released
+        * Fix core for memory leak
+
+Sun Jun  01 18:20.00 CEST 2009
+        * SS5-v3.7.8-4 released
+        * Fix mod_socks5 credential upstream proxy
+
+Sat Apr  15 45:00.00 CEST 2010 
+        * SS5-v3.8.1-1 released
+        * Fix EAP 
+        * Fix rpm
+        * Fix hash libs
+	* Fix epoll syscall
+        * Fix mod_socks4/5
+        * Fix socks vulnerability
+	* Fix package (add EPOLL IO flag)
+        * Fix mod_socks5 DOMAIN requests
+	* Fix dns resolution for thread-safe environment
+        * Add new ss5srv commands
+        * Add Radius support
+        * Add log features
+        * Add pid file features (thx to Thomas Goirand, Debian mantainer)
+        * Add 64bit file size support
+	* Add Session-Timeout and Idle_Timeout to radius feature
+	* Set thread stack to 128k
+        * Replace ldap_init with ldap_initialize
+        * Fix passwd auhentication
+
+Mon May  10 14:58.00 CEST 2010 
+        * SS5-v3.8.2-1 released
+        * Add mysql authorization section
+
+Sat May  22 12:40.00 CEST 2010 
+        * SS5-v3.8.2-2 released
+        * Bug fix mod_authentication
+        * Bug fix mod_authorization
+
+Tue May  25 23:10.00 CEST 2010 
+        * SS5-v3.8.2-3 released
+        * Fix radius update interval option
+
+Mon Jun  14 16:21.00 CEST 2010 
+        * SS5-v3.8.2-4 released
+        * Fix EAP
+	* Fix pid file
+	* Fix strncat
+
+Sun Jun  20 11:57.00 CEST 2010 
+        * SS5-v3.8.2-5 released
+        * Add SS5_SOCKS_PORT support to ss5srv
+        * Fix HA config file replica
+
+Sat Aug  28 17:51.00 CEST 2010 
+        * SS5-v3.8.2-6 released
+        * Fix authentication module

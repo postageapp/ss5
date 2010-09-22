@@ -1,0 +1,7 @@
+Since 3.7.1 release a new tool is available for ss5 management: ss5srv is a command line tool 
+to query o modifying ss5 online configuration. 
+
+Changes to ss5 online configuration are immediately effective and don't require reload.  Ss5srv 
+can write online config to an output file and then used instead of the orginal.
+
+

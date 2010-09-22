@@ -1,0 +1,4 @@
+With Solaris 8, you should create a symbolic link under modules directory (i.e. /usr/lib/ss5/) as follow:
+   
+   ln -s /usr/local/lib/libgcc_s.so.1 /usr/lib/ss5/libgcc_s.so.1
+

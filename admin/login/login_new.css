@@ -1,0 +1,63 @@
+ * {padding: 0; margin: 0; outline: none}
+html {height: 100%}
+body {font: 14px arial, sans-serif; color: #103D4A; line-height: 18px; height: 100%}
+p {margin-top:10px}
+a {text-decoration: none; color: #984121}
+em {font-family: "Trebuchet MS", arial, sans-serif; font-weight: bold}
+img, fieldset {padding-bottom: 10px;  border-top-style: solid; border-top-width: 1px; border-top-color: #ccc; border-right-style: none;border-left-style: none;border-bottom-style: none}
+legend { font-weight: bold; margin-top: 5px; color: black;}
+table {border-collapse: collapse; border-spacing: 0}
+textarea {border: none; font: 12px arial, helvetica, sans-serif; color: #222}
+h1 {font: bold 18px 'Trebuchet MS', Arial, Helvetica, sans-serif}
+h2 {font: bold 16px 'Trebuchet MS', Arial, Helvetica, sans-serif}
+h3 {font-size: 14px}
+h4 {font: bold italic 12px 'Trebuchet MS', Arial, Helvetica, sans-serif}
+h5 {font-size: 12px}
+
+.header {background: url("header_bg.png") repeat-x; border-bottom: 1px solid #a8c7ce;  padding: 15 0 0 0; height: 70px;  margin: 0  auto; position: relative}
+
+.content { margin: 0 auto;  background: white; padding: 35px 0 30px 25px; height: auto; min-height: 70%; position: relative}
+
+.login {padding: 35px 0 30px 25px}
+
+.login_block {padding: 10px 0 10px 0px; position: relative; width: 350px; margin-left: 48px}
+
+#login_label {background: url("username.png") no-repeat left center; }
+#password_label {background: url("password.png") no-repeat left center}
+
+.input_text {line-height: 14px; background: url("input_right.png") top right no-repeat; display: -moz-inline-stack; display: inline-block; zoom: 1; *display: inline}
+.input_text > span {background: url("input_left.png") no-repeat; padding: 4px 2px 4px 5px; margin-right: 3px; display: block}
+.input_text input {width: 240px; border: none; border-width: 0; height: 16px; font-size: 12px; color: #222}
+
+.input_text input.default_value {font-family: "Trebuchet MS", Arial, sans-serif; font-style: italic; color: #999}
+
+.graphic_text {display: block; text-indent: -5000px; overflow: hidden; background-repeat: no-repeat}
+
+.line {margin-bottom: 20px}
+.line > label {display: block; width: 100px; height: 24px; float: left}
+
+.explanation {position: absolute; width: 200px; top: 6px; left: 532px}
+.explanation.subtext {font-size: 13px; line-height: 20px}
+
+
+#login_button {float: right}
+#forgot_your_password {font: normal 12px Arial; display: block; margin: 30px 0 0 100px}
+
+.style1 { color: #984121; font-weight: bold; font: normal 12px Arial; }
+
+.mytest {
+  position:absolute;
+  overflow: hidden;
+  top: 240px; left: 72px;
+  width:350px;
+  height:180px;
+  float: left;
+  cursor: pointer;
+  background-color: #3A0000;
+  background:#f2f2f2;
+  border:1px solid #c3c3c3;
+
+  display:block;
+}
+
+

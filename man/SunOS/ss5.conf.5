@@ -1,0 +1,294 @@
+.TH ss5.conf 5 "20 Jan 2009"
+.SH NAME
+ss5.conf \- Configuration file for the ss5 daemon
+.SH SYNOPSIS
+The ss5 daemon usually reads the configuration file in /etc/ss5/ss5.conf. 
+.SH DESCRIPTION
+The ss5 daemon reads the configuration file when it starts and each time it receives an HUP signal.
+.PP
+The configuration file contains six sections:
+
+.RS 5
+- variables and flags
+.br
+- authentication
+.br
+- authorization
+.br
+- bandwidth
+.br
+- proxy
+.br
+- balancing
+.br
+- dumping
+.br
+- miscellaneous
+.RE
+.PP
+In each section, the ss5 daemon sequentially reads each line until it encounters a matching line for that section. The order of sections and the order of lines within a section are crucial to achieving the desired result. Every entry in a line must match.
+
+.SH VARIABLE AND FLAGS ENTRIES
+Variables and flags in the configuration file control the amount and types of logging and information messages. The configuration file syntax for initializing variables is:
+.RS 5
+.TP
+set \fIvariable\fP \fIvalue\fP
+.RE
+.PP
+.TP 15
+set
+Identifies entries that initialize ss5 variables for internal use.
+.P
+Refer to the ss5(1) VARIABLES section for complete details about ss5 variables and values.
+.PP
+.SH AUTHENTICATION ENTRIES
+Authentication entries identify the types of authentication the ss5 daemon can use. Authentication lines use the syntax:
+.PP
+.RS 5
+auth \fIsource-host source-port auth-methods\fP
+.RE
+.TP 15
+.B auth
+Identifies the entry as an authentication entry
+.TP
+.B \fIsource-host\fP
+Could be host address or network address
+.TP
+\fIsource-port\fP
+Must be a valid port or range
+.TP 
+.B \fIauth-methods\fP
+Could be u (Basic autentication), n (Fake authentication), s (SUPA authentication), k (GSS Kerberos) or - (No authentication). With n flag, ss5 requests authentication but doesn't check for password. Use fake authentication for logging or profiling purpose. About SUPA see ss5_supa man page.
+.PP
+External authentication program could be used, using the syntax:
+.PP
+.RS 5
+external_auth_program \fIprogram name\fP
+.RE
+.TP 15
+.B external_auth_program
+Force ss5 to use external authetication program instead of reading password file. Authentication program return OK on success or ERR if an error occurred.
+.TP
+.B \fIprogram name\fP
+Must be the full path name of the program to use for user authentication.
+.TP
+The ss5 daemon authenticates clients that originate on \fIsource-port\fP at \fIsource-host\fP using \fIauth-methods\fP. It can use password file or external program to validate requests.
+.PP
+.PP
+.B Radius authentication
+could be used, setting SS5_RADIUS_AUTH option and configuring the following attributes:
+.RS 5
+.PP
+.RE
+.TP 15
+.B \fIradius_ip\fP
+radius server address
+.B \fIradius_bck_ip\fP
+radius server secondary address
+.PP
+.B \fIradius_auth_port\fP
+radius authentication service port
+.PP
+.B \fIradius_acct_port\fP
+radius authorization service port
+.PP
+.B \fIradius_secret\fP
+radius client/server secret password
+.PP
+.PP
+.SH AUTHORIZATION ENTRIES
+The access control section determines when the server permits or denies a request to establish a connection. The ss5 daemon denies a request if an access control line does not match the request, even after it has authenticated the host. 
+.PP
+There are one type of line, permit line, with this syntax:
+.RS 5
+.PP
+permit/deny \fImethod src-host src-port dest-host dest-port fixup group bandwidth expdate\fP
+.RE
+.PP
+.TP 15
+.B \fImethod\fP
+could be - (authentication or not), k (GSS Kerberos), s (SUPA) or u (BASIC authentication required) 
+.TP
+.B \fIsrc-host\fP
+could be host address or network address
+.TP
+.B \fIsrc-port\fP
+Must be a valid port or range
+.TP
+.B \fIdest-host\fP
+Could be host address, network address or host name
+.TP
+.B \fIdest-port\fP
+Must be a valid port or range\fP
+.TP
+.B \fIfixup\fP
+Could be http, ssl,  smtp, pop3, imap, icache  or - (None)
+.TP
+.B \fIgroup\fP
+Could be filename in the /etc/ss5 directory containing usernames, a DN into a directory server or - (None). Not available for UDP requests.
+.TP
+.B \fIbandwidth\fP
+Could be a valid bandwidth range (from 256 bytes per second to 2147483647) or - (None).
+.TP
+.B \fIexpdate\fP
+Could be a valid expiration date in the format DD-MM-YYYY
+.TP
+The entire line matches only when all the entries match.
+.PP
+.PP
+.SH BANDWIDTH ENTRIES
+Bandwidth entries define limits per user about number of connections and bandwidth value. Authentication lines use the syntax:
+.PP
+.RS 5
+bandwidth \fIgroup maxcons bandwidth\fP
+.RE
+.TP 15
+.B bandwidth
+Limit bandwidth and number of connections per user
+.TP
+.B \fIgroup\fP
+Could be filename in the /etc/ss5 directory containing one or more usernames. Nb: if you modify a groupfile you must reload ss5 configuration.
+.TP
+\fImaxcons\fP
+Could be the number of max connections permitted to user. Valid range is 0 (no limit) to 65000.
+.TP 
+.B \fIbandwidth\fP
+Could be a valid bandwidth range (from 256 bytes per second to 2147483647) or - (None) per user.
+.PP
+.PP
+.SH PROXY ENTRIES
+Proxy entries describe the addresses clients can only reach through other SOCKS servers. With noproxy, ss5 makes direct connection.
+.RS 5
+.PP
+proxy/noproxy \fIdest-host dest-port proxy-host proxy-port ver\fP
+.RE
+.PP
+.TP 15
+.B \fIdest-host\fP
+Could be host address or network address
+.TP
+.B \fIdest-port\fP
+Must be a valid port or range
+.TP
+.B \fIproxy-host\fP
+Must be host address
+.TP
+.B \fIproxy-port\fP
+Must be a valid port
+.PP
+.TP
+.B \fIver\fP
+Must be 4 or 5. SS5 will use 4 or 5 socks ver using upstream.
+.PP
+.SH BALANCING ENTRIES
+Define an association between vid and real servers to balance:
+.RS 5
+.PP
+virtual \fIvid real\fP
+.RE
+.PP
+.TP 15
+.B \fIvid\fP
+define virtual identification and must be equal for the real ones that belongs to the same virtual identification
+.TP
+.B \fIreal\fP
+must be a valid internet address
+.PP
+.SH DUMP ENTRIES
+Dump entries describe the addresses and ports for which dumping traffic into a file.
+.RS 5
+.PP
+dump \fIdest-host dest-port dump-mode\fP
+.RE
+.PP
+.TP 15
+.B \fIdest-host\fP
+Could be host address or network address
+.TP
+.B \fIdest-port\fP
+Must be a valid port or range
+.TP
+.B \fIdump-mode\fP
+r=rx (traffic received from client), t=tx (traffic sent from client) and b=rx+tx (both directions)
+.PP
+.SH MISCELLANEOUS ENTRIES
+The profiling section determines when the server have to use ldap query or mysql query to perform user profiling, instead of looking into group file. 
+.PP
+There are five type of line for directory configuration:
+.RS 5
+.PP
+.RE
+.TP 15
+.B \fIldap_profile_ip\fP
+must be directory internet address
+.TP
+.B \fIldap_profile_port\fP
+must be directory port
+.TP
+.B \fIldap_profile_base\fP
+must be a valid "base" as starting point for the search into directory. ss5 uses ou='group'+base where 'group' is set in permit line in the ss5.conf file.
+.TP
+.B \fIldap_profile_filter\fP
+must be a valid "filter attribute" for ldap query, for example "uid"
+.TP
+.B \fIldap_profile_attribute\fP
+must be a valid "attribute" for ldap query. SS5 uses it with filter for search operation where SS5_LDAP_FILTER option is specified.
+.TP
+.B \fIldap_profile_dn\fP
+must be a valid "distinguished name" to bind to directory
+.TP
+.B \fIldap_profile_pass\fP
+must be a valid "password" for simple authentication
+.TP
+.B \fIldap_netbios_domain\fP
+must be a valid netbios domain name. If SS5_NETBIOS_DOMAIN option is set, ss5 map netbios domain user in authentication request with his configured directory sever. Otherwise no match is done and directory are contacted in order of configuration
+.PP
+There are four type of line for mysql configuration:
+.RS 5
+.PP
+.RE
+.TP 15
+.B \fImysql_profile_ip\fP
+must be mysql server internet address
+.TP 
+.B \fImysql_profile_db\fP
+must be mysql database 
+.TP 
+.B \fImysql_profile_user\fP
+must be mysql the username to access to mysql
+.TP 
+.B \fImysql_profile_pass\fP
+must be the password to access to mysql
+.TP 
+.B \fImysql_profile_sqlstring\fP
+must be the sql base string for query. DEFAULT 'SELECT uname FROM grp WHERE gname like'
+.TP
+.SH EXAMPLES
+.PP
+.RS 5
+auth 111.111.111.0/24 - u
+.br
+permit - - 111.111.111.0/22 - - - -
+.RE
+.PP
+Basic authenticated users from the class C network 111.111.111.0 can use the server.
+.PP
+.RS 5
+proxy - - 172.16.0.1 1081 -
+.br
+permit - - www.mydomain.com - - http - 
+.RE
+.PP
+All socks requests through 172.16.0.1 port 1081. Only requests with destination www.mydomain.com, protocol http
+are pertmitted. 
+.PP
+.SH SEE ALSO
+ss5(1), ss5.conf(5), ss5.pam(5), ss5.passwd(5), ss5.ha(5), ss5srv(1), ss5_supa(5), ss5_gssapi(5)
+.PP
+.SH AUTHORS
+.RS 3
+Matteo Ricchetti
+.RE
+.PP
+Send comments to matteo.ricchetti@libero.it
+

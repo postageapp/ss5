@@ -1,0 +1,18 @@
+Directory configuration example:
+
+1) Configure slapd.conf
+
+2) Start directory
+
+	slapd -d 256 -u ldap -f /etc/openldap/slapd.conf
+
+3) Create your entries.ldif
+
+4) Add entries to directory
+
+	ldapadd -f entries.ldif  -x -D "cn=root,dc=example,dc=com" -w secret
+
+5) Test search operation
+
+	ldapsearch -x -b 'ou=Systems,dc=example,dc=com' -D 'cn=root,dc=example,dc=com'  -w secret uid=sys1
+

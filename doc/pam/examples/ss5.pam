@@ -1,0 +1,10 @@
+# SS5 Pam configuration file
+#
+# Authentication using passwd
+# NOTE: in this case, you must start ss5 with "-u root" option!
+#
+#auth        required    /lib/security/pam_unix.so 
+#
+# Authentication using ldap
+#auth        required    /lib/security/pam_ldap.so 
+

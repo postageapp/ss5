@@ -1,0 +1,28 @@
+-----------------------------------------------------------------
+LINUX:
+
+Dependencies:
+
+	PAM devel
+	Open ldap devel
+	Posix Thread
+
+
+1) Type configure
+
+2) Type "Make"
+
+3) Type "Make install"
+
+-----------------------------------------------------------------
+SOLARIS 8:
+
+1) Type configure
+
+2) Type "Make"
+
+3) Type "Make install"
+
+4) Create symbolic link under /usr/lib/ss5/ as follow:
+   
+   ln -s /usr/local/lib/libgcc_s.so.1 /usr/lib/ss5/libgcc_s.so.1

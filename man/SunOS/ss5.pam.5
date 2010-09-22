@@ -1,0 +1,42 @@
+.TH ss5.pam 5 "14 Aug 2003"
+.SH NAME
+.HP 16
+ss5.pam \- Contains configuration lines for PAM authentication.
+.SH SYNOPSIS
+ss5 usually reads the password file, ss5.passwd, in the /etc/ss5 directory. If SS5_PAM_AUTH option is set, ss5 call PAM api to perform Username/Password.
+.PP
+.SH DESCRIPTION
+To enable PAM authentication with the ss5 daemon you must set SS5_PAM_AUTH options in the ss5.conf file. Before PAM authentication works, you have to create ss5 file in the /etc/pam.d directory and configure it (see /usr/share/doc/ss5/ss5.pam sample file). On Solaris, you have to edit /etc/pam.conf file.
+.PP
+Like for password file (see ss5.passwd), adding PAM authentication requires 3 steps:
+.RS 5
+.HP 3
+1. Create the PAM configuration file with one entry per line. To create an entry for using /etc/passwd like source, add this line to the /etc/pam.d/ss5 file: 
+.RS 8
+auth        required    /lib/security/pam_unix.so 
+.RE
+.HP 3
+2. Edit the auth line in the configuration file to require Username/Password authentication. The configuration file may contain auth lines such as: 
+.RS 8
+auth - - -
+.RE
+.PP
+.RS 3
+To add username and password authentication, change the line to: 
+.RS 5
+auth - - u
+.PP
+set SS5_PAM_AUTH
+.RE
+.RE
+.PP
+3. Restart the server.
+.SH SEE ALSO
+ss5(1), ss5.conf(5), ss5.pam(5), ss5.passwd(5), ss5.ha(5), ss5srv(1), ss5_supa(5), ss5_gssapi(5)
+.SH AUTHOR
+.RS 3
+Matteo Ricchetti
+.br
+.RE
+.PP
+Send comments to matteo.ricchetti@libero.it

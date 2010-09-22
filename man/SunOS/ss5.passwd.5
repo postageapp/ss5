@@ -1,0 +1,44 @@
+.TH ss5.passwd 5 "14 Jul 2003"
+.SH NAME
+.HP 16
+ss5.passwd \- Contains usernames and passwords for user authentication.
+.SH SYNOPSIS
+ss5 usually reads the password file, ss5.passwd, in the /etc/opt/ss5 directory.
+.PP
+.SH DESCRIPTION
+To enable Username/Password authentication with the ss5 daemon you must create a password file, and modify the ss5 configuration file, ss5.conf.
+.PP
+In the password file, add one line for each user. Each line should contain the username and password for the user, separated by white space. 
+
+In the ss5 configuration file, add an auth line to require authentication and allow the user access. For additional information about the ss5 configuration file, refer to the ss5.conf(5) man page.
+.PP
+Adding Username/Password authentication to ss5 requires 3 steps:
+.RS 5
+.HP 3
+1. Create the password file with one entry per line. To create an entry for the user named matthew, whose password is secret, add this line to the ss5.passwd file: 
+.RS 8
+matthew secret 
+.RE
+.HP 3
+2. Edit the auth line in the configuration file to require Username/Password authentication. The configuration file may contain auth lines such as: 
+.RS 8
+auth - - -
+.RE
+.PP
+.RS 3
+To add username and password authentication, change the line to: 
+.RS 5
+auth - - u
+.RE
+.RE
+.PP
+3. Restart the server.
+.SH SEE ALSO
+ss5(1), ss5.conf(5), ss5.pam(5), ss5.passwd(5), ss5.ha(5), ss5srv(1), ss5_supa(5), ss5_gssapi(5)
+.SH AUTHOR
+.RS 3
+Matteo Ricchetti
+.br
+.RE
+.PP
+Send comments to matteo.ricchetti@libero.it
