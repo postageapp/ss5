@@ -908,11 +908,6 @@ UINT ConnectServing(struct _SS5ClientInfo *ci, struct _SS5RequestInfo *ri, struc
       {
         int setFlag = 1;
 
-//        if (setsockopt(ci->appSocket, SOL_SOCKET, SO_REUSEADDR, &setFlag, sizeof(setFlag)) == -1) {
- //           ERRNO(pid);
-  //          err=S5REQUEST_ISERROR;
-   //     }
-
         memset((char *)&bindInterfaceSsin, 0, sizeof(struct sockaddr_in));
           bindInterfaceSsin.sin_family      = AF_INET;
 
@@ -922,8 +917,8 @@ UINT ConnectServing(struct _SS5ClientInfo *ci, struct _SS5RequestInfo *ri, struc
 
           if (getsockname(ci->Socket, (struct sockaddr*) &bindInterfaceSsin, &sl) != 0)
             bindInterfaceSsin.sin_addr.s_addr = htonl(INADDR_ANY);
-
-          bindInterfaceSsin.sin_port        = htons(0);
+          
+          bindInterfaceSsin.sin_port = htons(0);
 
       unsigned char* ip=(char*)&bindInterfaceSsin.sin_addr.s_addr;
       char logString[256];
