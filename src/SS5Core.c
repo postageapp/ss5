@@ -548,12 +548,10 @@ UINT S5Core( int cSocket )
          *    Direct connection
          */
         else {
-printf("%d %d\n",SS5Modules.mod_balancing_loaded,SS5SocksOpt.IsBalance);
           if( THREADED() && MODBALANCING() && BALANCE()) {
             /*
              *    Module BALANCING: call --> LoadBalancing
              */
-puts("CORE: B1");
 
             modErr = SS5Modules.mod_balancing.LoadBalancing(&SS5ClientInfo, &SS5RequestInfo);
           }
