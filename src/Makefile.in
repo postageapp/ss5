@@ -22,7 +22,7 @@ SRVOBJ  = SS5Srv.o
 CFLAGS=@CFLAGS@ -I . -I ../include  @EXTRA_CFLAGS@ 
 SRVCFLAGS=@CFLAGS@ -I . -I ../include @EXTRA_CFLAGS@
 
-LIBS = -lpthread @LIBS@ @EXTRA_LIBS@ 
+LIBS = -lpthread -lcrypto @LIBS@ @EXTRA_LIBS@ 
 
 CC = gcc
 

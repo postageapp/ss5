@@ -1062,7 +1062,10 @@ UINT BindServing(struct _SS5ClientInfo *ci, struct _SS5RequestInfo *ri, struct _
          */
         if( S5GetBindIf(ri->DstAddr,addr) == ERR ) {
           /* Match with destination address in socks request */
-          clientBindSsin.sin_addr.s_addr = htonl(INADDR_ANY);
+          
+          socklen_t sl = sizeof(clientBindSsin.sin_addr.s_addr);
+          if (getsockname(ci->appSocket, (struct sockaddr*) &clientBindSsin.sin_addr.s_addr, &sl) != 0)
+            clientBindSsin.sin_addr.s_addr = htonl(INADDR_ANY);
         }
         else
           clientBindSsin.sin_addr.s_addr = inet_addr(addr);
