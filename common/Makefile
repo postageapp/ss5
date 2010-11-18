@@ -5,10 +5,10 @@ top_builddir=..
 COMMONOBJ  = SS5OpenLdap.o SS5Radius.o SS5MySql.o
 
 
-CFLAGS=-g -O2 -DLINUX -D_FILE_OFFSET_BITS=64 -I . -I ../include   -ggdb -Wall -Wextra -pedantic -fno-strict-aliasing  -D EPOLL_IO  -DSS5_USE_GSSAPI  -DSS5_USE_MYSQL  -fPIC
-SRVCFLAGS=-g -O2 -DLINUX -D_FILE_OFFSET_BITS=64 -I . -I ../include  -ggdb -Wall -Wextra -pedantic -fno-strict-aliasing  -D EPOLL_IO  -DSS5_USE_GSSAPI  -DSS5_USE_MYSQL 
+CFLAGS=-g -O2 -DLINUX -D_FILE_OFFSET_BITS=64 -I . -I ../include   -fPIC
+SRVCFLAGS=-g -O2 -DLINUX -D_FILE_OFFSET_BITS=64 -I . -I ../include 
 
-LIBS = -lpthread -rdynamic -ldl -lssl -lldap -lpam -lpam_misc  -lgssglue  -rdynamic -L/usr/lib/mysql -lmysqlclient -lz -lcrypt -lnsl -lm -L/usr/lib -lssl -lcrypto 
+LIBS = -lpthread -rdynamic -ldl -lssl -lldap -lpam -lpam_misc  
 
 CC = gcc
 

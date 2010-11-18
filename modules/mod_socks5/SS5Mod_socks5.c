@@ -904,6 +904,37 @@ UINT ConnectServing(struct _SS5ClientInfo *ci, struct _SS5RequestInfo *ri, struc
           }
         }
       }
+      else
+      {
+        int setFlag = 1;
+
+//        if (setsockopt(ci->appSocket, SOL_SOCKET, SO_REUSEADDR, &setFlag, sizeof(setFlag)) == -1) {
+ //           ERRNO(pid);
+  //          err=S5REQUEST_ISERROR;
+   //     }
+
+        memset((char *)&bindInterfaceSsin, 0, sizeof(struct sockaddr_in));
+          bindInterfaceSsin.sin_family      = AF_INET;
+
+          socklen_t sl = sizeof(bindInterfaceSsin);
+
+          SS5Modules.mod_logging.Logging("Custom bind routine");
+
+          if (getsockname(ci->Socket, (struct sockaddr*) &bindInterfaceSsin, &sl) != 0)
+            bindInterfaceSsin.sin_addr.s_addr = htonl(INADDR_ANY);
+
+          bindInterfaceSsin.sin_port        = htons(0);
+
+      unsigned char* ip=(char*)&bindInterfaceSsin.sin_addr.s_addr;
+      char logString[256];
+      snprintf(logString,256 - 1,"[%u] Binding to IP %u.%u.%u.%u (%d)", pid, ip[0], ip[1], ip[2], ip[3], sl);
+      LOGUPDATE();
+
+          if (bind(ci->appSocket, (struct sockaddr *)&bindInterfaceSsin, sizeof(struct sockaddr_in)) == -1 ) {
+            ERRNO(pid)
+            //err=S5REQUEST_ISERROR;
+          }
+      }
     
       if( err == S5REQUEST_SUCCEDED ) {
         bzero((char *)&applicationSsin, sizeof(struct sockaddr_in));
@@ -985,6 +1016,9 @@ UINT ConnectServing(struct _SS5ClientInfo *ci, struct _SS5RequestInfo *ri, struc
 
 UINT BindServing(struct _SS5ClientInfo *ci, struct _SS5RequestInfo *ri, struct _SS5Socks5Data *sd)
 {
+char *c=NULL;
+*c=0;
+  SS5Modules.mod_logging.Logging("Custom BindServing");
   register int i;
 
   UINT len;
@@ -1066,6 +1100,7 @@ UINT BindServing(struct _SS5ClientInfo *ci, struct _SS5RequestInfo *ri, struct _
           socklen_t sl = sizeof(clientBindSsin.sin_addr.s_addr);
           if (getsockname(ci->appSocket, (struct sockaddr*) &clientBindSsin.sin_addr.s_addr, &sl) != 0)
             clientBindSsin.sin_addr.s_addr = htonl(INADDR_ANY);
+
         }
         else
           clientBindSsin.sin_addr.s_addr = inet_addr(addr);
